@@ -9,8 +9,8 @@ window.PORTFOLIO_CONFIG = {
      and → API Keys (the publishable key, starts sb_publishable_).
      Until these are filled in, the site shows the content further down
      and the contact form hands visitors over to WhatsApp.              */
-  supabaseUrl: 'https://YOUR-PROJECT.supabase.co',
-  supabaseKey: 'YOUR-PUBLISHABLE-KEY',
+  supabaseUrl: 'https://psiejwbyvnlogatrmoyp.supabase.co',
+  supabaseKey: 'sb_publishable_GxMJmpFueRfyE5R-jzONDg_Tj3XeOWq',
 
   video: {
     desktop: 'hero-hd.mp4',

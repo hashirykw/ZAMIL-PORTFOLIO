@@ -24,7 +24,7 @@ at the top of `config.js` in this repo and commit.
 
 1. **search.google.com/search-console**. If `nexlyr.solutions` is already a **Domain** property, the subdomain is
    covered. If not, add `https://zamil.nexlyr.solutions` as a **URL prefix** property, choose the **HTML tag** method,
-   and paste the tag into `index.html` where the comment says *Search Console*.
+   and paste the tag into `index.html`. (Done: the verification tag is already in place.)
 2. Submit `sitemap.xml` under **Sitemaps**.
 3. Under **URL Inspection**, click **Request indexing** for the home page, `/about` and the three service pages.
 4. Link the site from places Google already crawls: Zamil's Instagram bio, his LinkedIn (Contact info → Website),

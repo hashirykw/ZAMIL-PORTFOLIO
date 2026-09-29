@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://zamil.nexlyr.solutions/</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://zamil.nexlyr.solutions/zamil-cutout.webp</image:loc>
+      <image:title>Zamil Shaikh, video editor, shooter and director</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://zamil.nexlyr.solutions/og-card.jpg</image:loc>
+      <image:title>Zamil Shaikh, video editor and co-founder of Nexlyr Solutions</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zamil.nexlyr.solutions/video-editing</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://zamil.nexlyr.solutions/og-card.jpg</image:loc>
+      <image:title>Video editing — reels, promos and short-form content</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zamil.nexlyr.solutions/shooting-directing</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://zamil.nexlyr.solutions/og-card.jpg</image:loc>
+      <image:title>Shooting and directing — promo videos</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zamil.nexlyr.solutions/social-media-marketing</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://zamil.nexlyr.solutions/og-card.jpg</image:loc>
+      <image:title>Social media marketing and page management</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://zamil.nexlyr.solutions/about</loc>
+    <lastmod>2026-09-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://zamil.nexlyr.solutions/og-card.jpg</image:loc>
+      <image:title>About Zamil Shaikh</image:title>
+    </image:image>
+  </url>
+</urlset>

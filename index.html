@@ -1031,42 +1031,6 @@ html.lenis,html.lenis body{height:auto}
 }
 @media (max-height:520px) and (orientation:landscape){ .playtoggle{width:40px;height:40px} }
 
-/* Nexlyr preloader */
-#loader{position:fixed;inset:0;z-index:90;display:grid;place-items:center;overflow:hidden;background:#07100f;
-  clip-path:inset(0 0 0 0);transition:clip-path .9s cubic-bezier(.76,0,.24,1),opacity .5s .5s;transition-delay:0s}
-#loader::before{content:"";position:absolute;inset:-60px;background:var(--poster,none) center/cover;
-  filter:blur(46px) saturate(.9) brightness(.3);transform:scale(1.12)}
-#loader::after{content:"";position:absolute;inset:0;
-  background:radial-gradient(70% 60% at 50% 42%,rgba(0,150,220,.2),transparent 72%),
-             radial-gradient(120% 90% at 50% 120%,rgba(255,122,26,.12),transparent 60%),
-             linear-gradient(180deg,rgba(6,9,12,.7),rgba(6,9,12,.94))}
-#loader.gone{clip-path:inset(0 0 100% 0);opacity:0}
-.ld{position:relative;z-index:1;display:grid;justify-items:center;gap:clamp(18px,3vh,30px);width:min(320px,74vw)}
-.ld-word{width:clamp(96px,14vw,124px);height:auto;opacity:0;filter:drop-shadow(0 4px 18px rgba(0,180,255,.35));
-  animation:ldWord 1s .15s cubic-bezier(.22,1,.36,1) forwards}
-@keyframes ldWord{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
-.ld-bars{width:clamp(84px,11vw,104px);height:auto;overflow:visible;filter:drop-shadow(0 14px 34px rgba(0,150,220,.4))}
-.ld-track rect{fill:rgba(255,255,255,.07)}
-.ld-fill rect{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(var(--f,0));
-  transition:transform .7s cubic-bezier(.22,1,.36,1)}
-.ld-fill rect:nth-child(1){--f:var(--f1)} .ld-fill rect:nth-child(2){--f:var(--f2)} .ld-fill rect:nth-child(3){--f:var(--f3)}
-.ld-fill rect:nth-child(4){--f:var(--f4)} .ld-fill rect:nth-child(5){--f:var(--f5)}
-.ld-shine{animation:ldShine 2.6s cubic-bezier(.5,0,.5,1) infinite}
-@keyframes ldShine{0%{transform:translateX(0)}60%,100%{transform:translateX(200px)}}
-.ld-meta{width:100%;display:grid;gap:10px;justify-items:center;opacity:0;animation:ldWord .9s .45s cubic-bezier(.22,1,.36,1) forwards}
-.ld-name{font-family:var(--display);font-weight:500;font-size:14px;letter-spacing:.24em;text-transform:uppercase;color:rgba(247,245,242,.82)}
-.ld-line{position:relative;display:block;width:100%;height:1px;background:rgba(255,255,255,.14)}
-.ld-line::after{content:"";position:absolute;left:0;top:0;height:1px;width:calc(var(--p,0) * 100%);
-  background:linear-gradient(90deg,#00C8F8,#7FD9FF);box-shadow:0 0 12px rgba(0,200,248,.8);transition:width .5s cubic-bezier(.22,1,.36,1)}
-.ld-meta b{position:absolute;right:0;top:12px;font-family:var(--display);font-weight:500;font-size:12px;
-  color:rgba(247,245,242,.6);font-variant-numeric:tabular-nums}
-@media (prefers-reduced-motion:reduce){
-  .ld-fill rect,.ld-line::after{transition:none}
-  .ld-shine{animation:none;opacity:0}
-  .ld-word,.ld-meta{animation:none;opacity:1;transform:none}
-  #loader{transition:opacity .4s}
-}
-
 /* ═════════ reels, design grid and viewer ═════════ */
 .hint{font-size:12px;color:var(--ink-3)}
 .reels{display:flex;gap:12px;padding:4px 18px 18px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain}
@@ -1225,13 +1189,6 @@ input:focus,textarea:focus{box-shadow:inset 0 1px 2px rgba(0,0,0,.4),inset 0 0 0
   linear-gradient(160deg,rgba(4,12,22,.72),rgba(2,5,9,.92)),
   repeating-linear-gradient(90deg,rgba(0,200,248,.05) 0 1px,transparent 1px 11vmin),
   repeating-linear-gradient(0deg,rgba(0,200,248,.05) 0 1px,transparent 1px 11vmin)}
-#loader{background:#03060B}
-#loader::after{background:radial-gradient(60% 50% at 50% 42%,rgba(0,200,248,.2),transparent 72%),
-  repeating-linear-gradient(90deg,rgba(0,200,248,.045) 0 1px,transparent 1px 9vmin),
-  repeating-linear-gradient(0deg,rgba(0,200,248,.045) 0 1px,transparent 1px 9vmin),
-  linear-gradient(180deg,rgba(3,6,11,.6),rgba(3,6,11,.95))}
-.ld-line::after{background:linear-gradient(90deg,#00C8F8,#7FE2FF);box-shadow:0 0 12px rgba(0,200,248,.85)}
-.ld-name{color:rgba(242,247,252,.78)}
 
 @media (prefers-reduced-motion:reduce){
   .handle svg,.autonote i{animation:none}
@@ -1579,45 +1536,64 @@ button.tile:hover::after{opacity:1}
   .hero-card .me.desk{position:relative;z-index:1;right:auto;order:2;height:auto;width:112%;max-width:none;
     margin:14px -6% 0;-webkit-mask-image:none;mask-image:none}
 }
+
+/* ═════════ preloader: the reel inside giant ZAMIL letters, then a dive through the I ═════════ */
+#loader{position:fixed;inset:0;z-index:90;display:grid;place-items:center;align-content:center;gap:clamp(14px,1.6vw,26px);
+  background:#000;color:#fff;mix-blend-mode:multiply;will-change:transform;transition:transform 1.45s cubic-bezier(.7,0,.84,0)}
+#loader.dive{transform:scale(90)}
+#loader.gone{opacity:0;transition:opacity .5s ease}
+.ld-word{display:flex;overflow:hidden;padding:0 .03em;font-family:var(--display);font-weight:700;font-size:clamp(5rem,27vw,26rem);
+  line-height:.8;letter-spacing:-.01em}
+.ld-word span{display:inline-block;transform:translateY(112%);animation:ldRise 1.15s cubic-bezier(.16,1,.3,1) forwards;
+  animation-delay:calc(.1s + var(--n,0) * .065s)}
+.ld-word span:nth-child(2){--n:1} .ld-word span:nth-child(3){--n:2} .ld-word span:nth-child(4){--n:3} .ld-word span:nth-child(5){--n:4}
+@keyframes ldRise{to{transform:none}}
+.ld-sub{font-family:var(--font);font-weight:700;font-size:clamp(11px,1.3vw,17px);letter-spacing:.34em;padding-left:.34em;
+  text-transform:uppercase;text-align:center;opacity:0;animation:ldSub .7s .75s cubic-bezier(.16,1,.3,1) forwards;transition:opacity .3s}
+@keyframes ldSub{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+#loader.dive .ld-sub{opacity:0!important}
+.ld-meta{position:fixed;z-index:91;bottom:calc(6vh + env(safe-area-inset-bottom,0px));pointer-events:none;transition:opacity .3s}
+.ld-meta.out{opacity:0}
+.ld-meta--l{left:var(--pad);font-family:var(--display);font-weight:700;font-size:clamp(2.4rem,5vw,4.2rem);line-height:.9;
+  letter-spacing:-.01em;color:var(--blue);font-variant-numeric:tabular-nums;text-shadow:0 0 26px rgba(0,200,248,.45)}
+.ld-meta--r{right:var(--pad);display:grid;justify-items:end;gap:6px;font-size:11.5px;font-weight:600;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--ink)}
+.ld-meta--r .ld-where{color:var(--ink-3);font-weight:500}
+@media (max-width:600px){
+  .ld-word{font-size:30vw}
+  .ld-sub{letter-spacing:.2em;padding-left:.2em;font-size:10px}
+  .ld-meta--r{font-size:10px;letter-spacing:.18em}
+  .ld-meta--r .ld-where{display:none}
+}
+/* while it loads: only the reel shows through the letters, brighter and pushed in; it settles back on arrival */
+html.pre-on,html.pre-on body{overflow:hidden}
+html.pre-on .top,html.pre-on .layer,html.pre-on .playtoggle,html.pre-on .meter,html.pre-on .autonote{opacity:0;pointer-events:none}
+html.ld-in .top,html.ld-in .playtoggle,html.ld-in .meter{animation:ldFade .9s .15s ease backwards}
+@keyframes ldFade{from{opacity:0}}
+html.pre-on .screen video{transform:scale(1.2);filter:contrast(1.1) saturate(1.25) brightness(1.7)}
+html.pre-on .screen::before,html.pre-on .screen::after{opacity:0}
+.screen video{transition:opacity .45s ease,transform 1.8s cubic-bezier(.16,1,.3,1),filter 1.4s ease}
+.screen::before,.screen::after{transition:opacity 1.4s ease}
+@media (prefers-reduced-motion:reduce){
+  .ld-word span{animation:none;transform:none}
+  .ld-sub{animation:none;opacity:1}
+  html.pre-on .screen video{transform:none}
+  html.ld-in .top,html.ld-in .playtoggle,html.ld-in .meter{animation:none}
+}
 </style>
 </head>
 <body>
 
+<script>document.documentElement.classList.add('pre-on');try{history.scrollRestoration='manual'}catch(e){}scrollTo(0,0)</script>
+<noscript><style>#loader,.ld-meta{display:none}</style></noscript>
+
+<!-- preloader: the reel plays inside giant ZAMIL letters, then the camera dives through the I -->
 <div id="loader" role="progressbar" aria-label="Loading" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-  <div class="ld">
-    <img class="ld-word" src="nexlyr-wordmark.png" alt="Nexlyr" width="600" height="96">
-    <svg class="ld-bars" viewBox="0 0 100 140" aria-hidden="true">
-      <defs>
-        <linearGradient id="ldg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#00C8F8"/><stop offset=".55" stop-color="#00A6E0"/><stop offset="1" stop-color="#0068B0"/>
-        </linearGradient>
-        <linearGradient id="lds" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
-        </linearGradient>
-        <clipPath id="ldclip">
-          <rect x="0" y="0" width="15.7" height="140"/><rect x="21.3" y="0" width="15.7" height="140"/>
-          <rect x="42.5" y="0" width="15.4" height="140"/><rect x="63.3" y="0" width="15.6" height="99.7"/>
-          <rect x="84.5" y="0" width="15.5" height="99.7"/>
-        </clipPath>
-      </defs>
-      <g class="ld-track">
-        <rect x="0" y="0" width="15.7" height="140" rx="1"/><rect x="21.3" y="0" width="15.7" height="140" rx="1"/>
-        <rect x="42.5" y="0" width="15.4" height="140" rx="1"/><rect x="63.3" y="0" width="15.6" height="99.7" rx="1"/>
-        <rect x="84.5" y="0" width="15.5" height="99.7" rx="1"/>
-      </g>
-      <g class="ld-fill" fill="url(#ldg)">
-        <rect x="0" y="0" width="15.7" height="140" rx="1"/><rect x="21.3" y="0" width="15.7" height="140" rx="1"/>
-        <rect x="42.5" y="0" width="15.4" height="140" rx="1"/><rect x="63.3" y="0" width="15.6" height="99.7" rx="1"/>
-        <rect x="84.5" y="0" width="15.5" height="99.7" rx="1"/>
-      </g>
-      <g clip-path="url(#ldclip)"><rect class="ld-shine" x="-60" y="-10" width="52" height="160" fill="url(#lds)"/></g>
-    </svg>
-    <div class="ld-meta">
-      <span class="ld-name">Zamil Shaikh</span>
-      <span class="ld-line"><b id="loadPct">0%</b></span>
-    </div>
-  </div>
+  <div class="ld-word" aria-hidden="true"><span>Z</span><span>A</span><span>M</span><span class="ld-i">I</span><span>L</span></div>
+  <div class="ld-sub" aria-hidden="true">Shoot · Edit · Direct</div>
 </div>
+<div class="ld-meta ld-meta--l" aria-hidden="true"><span id="ldNum">000</span></div>
+<div class="ld-meta ld-meta--r" aria-hidden="true"><span id="ldMsg">Importing footage</span><span class="ld-where">Karachi · Nexlyr Solutions</span></div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
@@ -2131,7 +2107,6 @@ video.muted = true; video.defaultMuted = true; video.playsInline = true;
 video.setAttribute('muted', ''); video.setAttribute('playsinline', ''); video.setAttribute('webkit-playsinline', '');
 video.preload = 'auto';
 $('#screen').style.backgroundImage = poster ? `url("${poster}")` : '';
-$('#loader').style.setProperty('--poster', poster ? `url("${poster}")` : 'none');
 
 /* Data saver, a slow connection or reduced motion: the video is never downloaded.
    The poster stays on screen and the page costs a few hundred KB instead of 13 MB. */
@@ -2150,31 +2125,54 @@ function loadVideoNow(){
   video.load();
 }
 
-/* preloader: the five Nexlyr bars fill up */
-const loader = $('#loader'), ldBars = $('.ld-bars'), pct = $('#loadPct');
-let shown = 0, real = 0, loaderDone = false;
-function paintLoader(p){
-  for(let i = 0; i < 5; i++) ldBars.style.setProperty('--f' + (i + 1), clamp(p * 5 - i, 0, 1).toFixed(3));
-  pct.textContent = Math.round(p * 100) + '%';
-  $('.ld-line').style.setProperty('--p', p.toFixed(3));
-  loader.setAttribute('aria-valuenow', Math.round(p * 100));
-}
-const ldTimer = setInterval(() => {
-  const goal = Math.max(real, Math.min(.86, shown + .035));   // never stalls visually, never lies about the end
-  shown += (goal - shown) * .35;
-  paintLoader(shown);
-}, 90);
+/* preloader: the reel plays inside giant ZAMIL letters, the counter runs to 100,
+   then the camera dives through the I into the hero (same idea as the Grub and VERZISH sites) */
+const loader = $('#loader'), ldNum = $('#ldNum'), ldMsg = $('#ldMsg'), ldMetas = $$('.ld-meta');
+const LD_MSGS = ['Importing footage', 'Cutting', 'Grading', 'Mixing sound', 'Ready'];
+const LD_MIN = reduce ? 300 : 2600;                 // letters need this long to land before the dive
+const ldStart = performance.now();
+let ldShown = 0, real = 0, loaderDone = false, heroLive = false, ldMsgI = -1, ldLast = ldStart;
 video.addEventListener('progress', () => {
-  try{ const b = video.buffered; if(b.length) real = Math.min(1, b.end(b.length - 1) / LEN); }catch(e){}
+  try{ const b = video.buffered; if(b.length) real = Math.max(real, Math.min(1, b.end(b.length - 1) / LEN)); }catch(e){}
 });
+// the reel starts as soon as it can, so it is already moving inside the letters
+video.addEventListener('canplay', () => { real = 1; startPlayback(); }, { once:true });
+setTimeout(() => { real = 1; }, holdVideo ? 0 : 6000);
+function ldTick(now){
+  const target = Math.min(clamp((now - ldStart) / LD_MIN, 0, 1), real);
+  const dt = Math.min(.1, (now - ldLast) / 1000); ldLast = now;
+  ldShown += (target - ldShown) * (1 - Math.exp(-dt * 7));
+  if(target >= 1 && ldShown > .985) ldShown = 1;
+  const pc = Math.round(ldShown * 100);
+  ldNum.textContent = String(pc).padStart(3, '0');
+  loader.setAttribute('aria-valuenow', pc);
+  const mi = ldShown >= 1 ? 4 : Math.min(3, Math.floor(ldShown * 4));
+  if(mi !== ldMsgI){ ldMsgI = mi; ldMsg.textContent = LD_MSGS[mi]; }
+  if(ldShown < 1) requestAnimationFrame(ldTick);
+  else setTimeout(finishLoader, reduce ? 50 : 280);
+}
+requestAnimationFrame(ldTick);
+function goLive(){
+  if(heroLive) return; heroLive = true;
+  const root = document.documentElement;
+  root.classList.remove('pre-on'); root.classList.add('ld-in');
+  heroIn(); initLenis();
+  if(video.paused) startPlayback();
+  if(introDone) armAuto(1600);
+}
 function finishLoader(){
   if(loaderDone) return; loaderDone = true;
-  clearInterval(ldTimer);
-  paintLoader(1);
-  setTimeout(() => { loader.classList.add('gone'); heroIn(); initLenis(); startPlayback(); }, 620);
+  const I = $('.ld-i');
+  const drop = () => { loader.remove(); ldMetas.forEach(m => m.remove()); };
+  if(reduce || !I){ loader.classList.add('gone'); ldMetas.forEach(m => m.classList.add('out')); goLive(); setTimeout(drop, 600); return; }
+  // aim the zoom at the middle of the I, so the screen ends up fully inside the letter
+  const r = I.getBoundingClientRect();
+  loader.style.transformOrigin = `${r.left + r.width / 2}px ${r.top + r.height * .55}px`;
+  ldMetas.forEach(m => m.classList.add('out'));
+  loader.classList.add('dive');
+  setTimeout(goLive, 1000);
+  setTimeout(drop, 1500);
 }
-video.addEventListener('canplay', () => { real = Math.max(real, .6); setTimeout(finishLoader, 250); }, { once:true });
-setTimeout(finishLoader, holdVideo ? 700 : 6000);
 
 /* playback model: intro at normal speed, then slow drift, faster while scrolling */
 const toggle = $('#playToggle');
@@ -2252,7 +2250,7 @@ const note = $('#autonote');
 let auto = false, autoTimer = 0, lastTick = 0, autoY = 0;
 function armAuto(delay){
   clearTimeout(autoTimer);
-  if(reduce || userPaused) return;
+  if(reduce || userPaused || !heroLive) return;
   autoTimer = setTimeout(() => {
     if(isOpen || userPaused || progress() >= .999) return;
     auto = true; lastTick = 0; autoY = scrollY; note.classList.add('on');

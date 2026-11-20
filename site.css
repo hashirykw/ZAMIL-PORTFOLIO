@@ -1067,3 +1067,7 @@ a.venture:hover b{color:var(--color-accent)}
 /* photo captions sit on dark photos in both themes */
 .shot--hero figcaption,.shot--wide figcaption{color:oklch(96% .004 90)}
 @media (max-width:24rem){.sign{width:min(9.6rem,50%);right:.15rem}}
+
+/* 3D figure in HELLO: the polaroid tucks lower so the figure stays in view, the spin hint sits on the left */
+.collage .turn__tag{right:auto;left:.2rem;bottom:-1.6rem}
+.collage__pol{width:44%;bottom:-1.9rem}

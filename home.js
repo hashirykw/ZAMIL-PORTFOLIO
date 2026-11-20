@@ -290,6 +290,18 @@ if(URL_OK){
 })();
 
 
+/* ── the HELLO figure: a rotating 3D model of Zamil with his camera, loaded only when the block comes near the screen ── */
+(() => {
+  const t = $('.turn'); if(!t) return;
+  const gl = (() => { try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch(e){ return false; } })();
+  if(!gl){ t.classList.add('no-3d'); return; }
+  const io = new IntersectionObserver(es => {
+    if(!es[0].isIntersecting) return; io.disconnect();
+    import('./figure.js?v=1').then(m => m.mountFigure(t)).catch(() => t.classList.add('no-3d'));
+  }, { rootMargin:'600px' });
+  io.observe(t);
+})();
+
 /* ── contact form → Supabase messages table ── */
 const form = $('#form'), msg = $('#note'), send = $('#send'), sendLabel = $('#sendLabel');
 form.addEventListener('submit', async e => {

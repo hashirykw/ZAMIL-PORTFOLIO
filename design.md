@@ -3,8 +3,7 @@
 Locked design system for every page of zamil.nexlyr.solutions, carried over 1:1 from
 HASHIR-PORTFOLIO (same tokens, type, surfaces and components). All pages read
 `site.css`; extend that file (and this note) rather than styling a page on its own.
-Zamil-only differences live in the last block of `site.css` (photo collage instead of the 3D
-figure, the four numbers, a centred toolkit, three crafts, lighter disc in the O).
+Zamil-only differences live in the last block of `site.css` (the 3D figure holds his Sony camera, with a polaroid beside it, the four numbers, a centred toolkit, three crafts, lighter disc in the O).
 
 ## Genre
 Editorial, studied DNA: crumpled graph paper, near-black ink sections, torn paper
@@ -51,3 +50,6 @@ Primary: black slab, wide caps, ↗ (`.btn`). Secondary: underlined caps link (`
 - Link preview: `.design/og-card.html` (uses `.design/og-pop.webp`), rendered to `og-card.jpg`
   at 1200x630; face and name stay inside the centre 630x630 square. Mockups: `.design/og-preview.html`.
 - Chat: `assistant.js` is Zamil AI's knowledge base; hand-offs go to WhatsApp 923337799953.
+- HELLO figure: `figure.js` builds Zamil in three.js (wavy hair, thick black glasses, Nexlyr polo with blue trim
+  and stripes, dark jeans, Sony alpha in both hands) on the same plinth, light and drag-to-spin as Hashir's.
+  `home.js` loads it only when the block comes near the screen; the photo cutout stays as the no-WebGL fallback.

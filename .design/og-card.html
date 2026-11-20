@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+/* Social preview card, 1200x630 (Zamil Shaikh; render with Chrome at 1200x630 and save as ../og-card.jpg). Crop-safe: face + name live in the centre 630x630 square,
+   so WhatsApp / iMessage / Instagram square thumbnails still show the important part. */
+@font-face{font-family:W;src:url(../font-archivo-wide-900.woff2);font-weight:900}
+@font-face{font-family:W;src:url(../font-archivo-wide-700.woff2);font-weight:700}
+@font-face{font-family:T;src:url(../font-archivo-400.woff2);font-weight:400}
+*{margin:0;box-sizing:border-box}
+:root{--ink:oklch(16% .004 90);--paper:oklch(95.5% .004 90);--grid:oklch(86.5% .004 90);--red:oklch(59% .215 27.5)}
+body{width:1200px;height:630px;overflow:hidden;position:relative;color:var(--ink);font-family:T;
+ background-color:var(--paper);background-image:linear-gradient(90deg,var(--grid) 1px,transparent 1px),linear-gradient(0deg,var(--grid) 1px,transparent 1px),url(../paper-light.webp);
+ background-size:28px 28px,28px 28px,1024px 1024px;background-position:-1px -1px,-1px -1px,0 0}
+.o{position:absolute;left:50%;top:196px;width:276px;height:276px;translate:-50% 0}
+.o i{position:absolute;inset:0;border-radius:50%;background:radial-gradient(75% 75% at 60% 28%,oklch(70% .012 60),oklch(52% .012 50) 62%,oklch(40% .012 40));box-shadow:0 0 0 6px var(--red)}
+.o img{position:absolute;left:50%;bottom:0;width:282px;translate:-50% 0;filter:drop-shadow(0 16px 22px oklch(0% 0 0 / .28))}
+h1{position:absolute;left:0;right:0;top:494px;text-align:center;font:900 58px/.95 W;text-transform:uppercase}
+.side{position:absolute;top:52px;bottom:52px;width:220px;display:flex;flex-direction:column;justify-content:space-between}
+.l{left:52px}.r{right:52px;align-items:flex-end;text-align:right}
+.brand{display:flex;align-items:center;gap:12px;font:700 16px/1 W;letter-spacing:.06em;text-transform:uppercase}
+.brand img{height:30px}
+.lbl{font:700 15px/1.35 W;letter-spacing:.08em;text-transform:uppercase;color:var(--red)}
+.tags{display:grid;gap:12px;justify-items:start}
+.r .tags{justify-items:end}
+.tags b{font:700 13px/1 W;letter-spacing:.06em;text-transform:uppercase;padding:12px 14px;background:#fff;box-shadow:inset 0 0 0 2px var(--ink),4px 4px 0 var(--ink)}
+.url{font:700 12px/1 W;letter-spacing:.04em;padding:11px 12px;background:var(--ink);color:#fff}
+.note{font:400 18px/1.4 T;color:oklch(32% .004 90)}
+</style></head><body>
+<div class="side l">
+  <div class="brand"><img src="../nexlyr-logo.svg" alt="">Z. Shaikh</div>
+  <div class="lbl">Video editor<br>/ Shooter<br>/ Director<br>/ AI UGC</div>
+  <div class="tags"><b>Reels</b><b>Promos</b></div>
+</div>
+<div class="side r">
+  <span class="url">zamil.nexlyr.solutions</span>
+  <p class="note">Co-founder of<br>Nexlyr Solutions.<br>Karachi, Pakistan.</p>
+  <div class="tags"><b>Shoots</b><b>Social</b></div>
+</div>
+<div class="o"><i></i><img src="og-pop.webp" alt=""></div>
+<h1>Zamil<br>Shaikh</h1>
+</body></html>

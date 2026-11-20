@@ -1,10 +1,10 @@
 {
-  "name": "Zamil Shaikh — Video Editor & Director",
+  "name": "Zamil Shaikh \u2014 Video Editor & Director",
   "short_name": "Zamil",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#03060B",
-  "theme_color": "#03060B",
+  "background_color": "#efeeea",
+  "theme_color": "#efeeea",
   "icons": [
     {
       "src": "icon-192.png",
